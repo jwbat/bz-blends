@@ -16,20 +16,6 @@ export default {
         this.$store.dispatch('login', user.uid);
       }
     });
-
-    let menu; let hours;
-    await db.collection('menu')
-      .doc('m')
-      .onSnapshot(doc => {
-        menu = Array.from(Object.values(doc.data()));
-        this.$store.dispatch('setMenu', menu);
-      }, err => console.log(err.message));
-    await db.collection('hours')
-      .doc('h')
-      .onSnapshot(doc => {
-        hours = Array.from(Object.values(doc.data()));
-        this.$store.dispatch('setHours', hours);
-      }, err => console.log(err.message));
   },
 };
 </script>

@@ -1,4 +1,4 @@
-import { db, storage } from '@/services/fireinit.js'
+import { db } from '@/services/fireinit.js'
 
 export const state = () => ({
   loggedIn: false,
@@ -32,6 +32,29 @@ export const mutations = {
 }
 
 export const actions = {
+
+  nuxtClientInit({ dispatch }) { // see plugins
+    let menu; let hours;
+
+    db.collection('menu')
+      .doc('m')
+      .get()
+      .then(doc => {
+        menu = Array.from(Object.values(doc.data()));
+        dispatch('setMenu', menu);
+      })
+      .catch(err => console.log(err.message));
+
+    db.collection('hours')
+      .doc('h')
+      .get()
+      .then(doc => {
+        hours = Array.from(Object.values(doc.data()));
+        dispatch('setHours', hours);
+      })
+      .catch(err => console.log(err.message));
+  },
+
   async login({ commit }, email) {
     let approved = await db.collection('users')
       .doc(email)
@@ -54,8 +77,10 @@ export const actions = {
   },
 
   setItems({ dispatch }, { hours, menu }) {
-    dispatch('editHours', hours);
-    dispatch('editMenu', menu);
+    dispatch('editHours', hours); // firebase
+    dispatch('editMenu', menu);   // firebase
+    dispatch('setHours', hours);  // store
+    dispatch('setMenu', menu);    // store
   },
 
   editHours(context, hours) {
@@ -76,28 +101,6 @@ export const actions = {
 
   setMenu({ commit }, menu) {
     commit('setMenu', menu);
-  },
-
-  async nuxtServerInit({ commit }) {
-    let menu; let hours;
-
-    await db.collection('menu')
-      .doc('m')
-      .get()
-      .then(doc => {
-        menu = Array.from(Object.values(doc.data()));
-        commit('setMenu', menu);
-      })
-      .catch(err => console.log(err.message));
-
-    await db.collection('hours')
-      .doc('h')
-      .get()
-      .then(doc => {
-        hours = Array.from(Object.values(doc.data()));
-        commit('setHours', hours);
-      })
-      .catch(err => console.log(err.message));
   },
 }
 

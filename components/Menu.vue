@@ -44,11 +44,6 @@ import { storage } from '@/services/fireinit.js';
 import _ from "lodash";
 
 export default {
-  data() {
-    return {
-      url: ''
-    };
-  },
   computed: {
     menu() {
       return _.cloneDeep(this.$store.getters.menu);
