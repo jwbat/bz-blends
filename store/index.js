@@ -33,26 +33,27 @@ export const mutations = {
 
 export const actions = {
 
-  nuxtClientInit({ dispatch }) { // see plugins
+  async nuxtServerInit({ commit }) {
     let menu; let hours;
 
-    db.collection('menu')
+    await db.collection('menu')
       .doc('m')
       .get()
       .then(doc => {
         menu = Array.from(Object.values(doc.data()));
-        dispatch('setMenu', menu);
+        commit('setMenu', menu);
       })
       .catch(err => console.log(err.message));
 
-    db.collection('hours')
+    await db.collection('hours')
       .doc('h')
       .get()
       .then(doc => {
         hours = Array.from(Object.values(doc.data()));
-        dispatch('setHours', hours);
+        commit('setHours', hours);
       })
       .catch(err => console.log(err.message));
+    return ;
   },
 
   async login({ commit }, email) {

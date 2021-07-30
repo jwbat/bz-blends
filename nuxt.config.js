@@ -1,6 +1,6 @@
 export default {
 
-  target: 'static',
+  target: 'server', // default
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -35,7 +35,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/nuxt-client-init.client.js'
+//     '~/plugins/nuxt-client-init.client.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

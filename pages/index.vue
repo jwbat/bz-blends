@@ -44,5 +44,7 @@
 
 .footer {
   margin-top: auto;
+  background: rgb(0,7,8);
+  background: linear-gradient( 0deg , rgb(27 2 56) 0%, rgb(68 9 29 / 87%) 100%);
 }
 </style>

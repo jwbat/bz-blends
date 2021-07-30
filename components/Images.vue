@@ -24,7 +24,7 @@
         v-if="currentIdx == 0 && isHeader" 
         class="title"
       >
-        BZ<span class="title-offset">Blends</span> 
+        Bz<span class="title-offset">Blends</span> 
       </h1>
     </div>
   </transition-group>
@@ -110,7 +110,7 @@ export default {
   position: absolute;
   width: 100%;
   left: -15%;
-  bottom: 2rem;
+  bottom: 3rem;
   text-align: center;
   font-family: Tahoma;
   font-weight: 400;

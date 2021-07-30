@@ -9,7 +9,6 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "axios": "^0.21.1",
     "core-js": "^3.9.1",
     "firebase": "^8.6.8",
     "gsap": "^3.7.1",
