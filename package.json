@@ -1,12 +1,16 @@
 {
   "name": "bz-blends",
   "version": "1.0.0",
+  "engines": {
+      "node": "14.x"
+  },
   "private": true,
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "core-js": "^3.9.1",
