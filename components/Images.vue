@@ -17,7 +17,7 @@
         class="img"
         :src="currentImage"
         alt="Mount Adams"
-        fit="cover"
+        fit="contain"
         sizes="sm:100vw md:90vw lg:700px xl:700px"
       />
       <h1 
