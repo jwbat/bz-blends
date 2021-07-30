@@ -10,7 +10,6 @@
     @after-leave="afterLeave"
   >
     <div 
-      @click="pause"
       v-for="i in [currentIdx]" 
       :key="i"
     >
@@ -18,6 +17,7 @@
         class="img"
         :src="currentImage"
         alt="Mount Adams"
+        fit="cover"
         sizes="sm:100vw md:90vw lg:700px xl:700px"
       />
       <h1 
@@ -55,9 +55,6 @@ export default {
     this.next();
   },
   methods: {
-    pause() {
-      tl.paused() ? tl.play() : tl.pause();
-    },
     next() {
       this.currentIdx = (this.currentIdx + 1) % this.images.length;
     },
@@ -89,7 +86,10 @@ export default {
     },
     afterLeave(el) {
       this.next();
-    }
+    },
+//     pause() {
+//       tl.paused() ? tl.play() : tl.pause();
+//     },
   }
 };
 </script>
@@ -101,7 +101,9 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+  /*
   margin: auto;
+   */
 }
 
 .title {
