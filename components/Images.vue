@@ -18,7 +18,7 @@
         :src="currentImage"
         alt="Mount Adams"
         fit="contain"
-        sizes="sm:100vw md:90vw lg:700px xl:700px"
+        sizes="sm:100vw md:100vw lg:700px xl:700px"
       />
       <h1 
         v-if="currentIdx == 0 && isHeader" 
