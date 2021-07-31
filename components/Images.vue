@@ -52,7 +52,7 @@ export default {
     },
   },
   mounted() {
-    this.next();
+//     this.next();
   },
   methods: {
     next() {
@@ -110,7 +110,7 @@ export default {
   position: absolute;
   width: 100%;
   left: -15%;
-  bottom: 3rem;
+  bottom: 4rem;
   text-align: center;
   font-family: Tahoma;
   font-weight: 400;
@@ -122,7 +122,6 @@ export default {
 .title-offset {
   position: absolute;
   bottom: -7vw;
-/*   bottom: -1.7rem;*/
 }
 
 @media (min-width: 600px) {
