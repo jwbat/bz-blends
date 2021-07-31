@@ -52,7 +52,7 @@ export default {
     },
   },
   mounted() {
-//     this.next();
+    this.next();
   },
   methods: {
     next() {
